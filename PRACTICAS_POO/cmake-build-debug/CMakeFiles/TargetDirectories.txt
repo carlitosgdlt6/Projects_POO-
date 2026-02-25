@@ -1,0 +1,3 @@
+C:/Users/grana/Downloads/PRACTICAS_POO/cmake-build-debug/CMakeFiles/PRACTICAS_POO.dir
+C:/Users/grana/Downloads/PRACTICAS_POO/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/grana/Downloads/PRACTICAS_POO/cmake-build-debug/CMakeFiles/rebuild_cache.dir
