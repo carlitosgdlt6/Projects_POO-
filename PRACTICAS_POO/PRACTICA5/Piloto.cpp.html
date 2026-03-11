@@ -1,0 +1,203 @@
+<html>
+<head>
+<title>Piloto.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #b3ae60;}
+.s3 { color: #6aab73;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #bcbec4;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Piloto.cpp</font>
+</center></td></tr></table>
+<pre><span class="s0">/**  
+ * @file Piloto.cpp 
+ * @author Yoyapro Gramo 
+ *  
+ * @date Fecha estelar 20160309 
+ */</span>
+
+<span class="s2">#include </span><span class="s3">&lt;stdexcept&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;sstream&gt;</span>
+
+<span class="s2">#include </span><span class="s3">&quot;Piloto.h&quot;</span>
+
+<span class="s4">using </span><span class="s1">std::string</span><span class="s5">;</span>
+
+<span class="s4">int </span><span class="s1">Piloto::_numPilotos </span><span class="s5">= </span><span class="s6">0</span><span class="s5">;</span>
+
+<span class="s1">Piloto::Piloto </span><span class="s5">( )</span><span class="s1">: Piloto </span><span class="s5">( </span><span class="s3">&quot;&quot; </span><span class="s5">)</span>
+<span class="s5">{ }</span>
+
+<span class="s1">Piloto::Piloto </span><span class="s5">( </span><span class="s1">string nombre </span><span class="s5">)</span><span class="s1">: _nombre </span><span class="s5">(</span><span class="s1">nombre</span><span class="s5">)</span>
+<span class="s5">{</span>
+   <span class="s1">_numPilotos</span><span class="s5">++;</span>
+   <span class="s1">_idP </span><span class="s5">= </span><span class="s1">_numPilotos</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s1">Piloto::Piloto </span><span class="s5">( </span><span class="s4">const </span><span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">orig </span><span class="s5">)</span><span class="s1">: _nombre</span><span class="s5">(</span><span class="s1">orig</span><span class="s5">.</span><span class="s1">_nombre</span><span class="s5">),</span>
+                                       <span class="s1">_nacionalidad</span><span class="s5">(</span><span class="s1">orig</span><span class="s5">.</span><span class="s1">_nacionalidad</span><span class="s5">),</span>
+                                       <span class="s1">_numMisiones</span><span class="s5">(</span><span class="s1">orig</span><span class="s5">.</span><span class="s1">_numMisiones</span><span class="s5">),</span>
+                                       <span class="s1">_fechaUltimaMision</span><span class="s5">(</span><span class="s1">orig</span><span class="s5">.</span><span class="s1">_fechaUltimaMision</span><span class="s5">),</span>
+                                       <span class="s1">_incidenciasUltimaMision</span><span class="s5">(</span><span class="s1">orig</span><span class="s5">.</span><span class="s1">_incidenciasUltimaMision</span><span class="s5">)</span>
+<span class="s5">{</span>
+   <span class="s1">_numPilotos</span><span class="s5">++;</span>
+   <span class="s1">_idP </span><span class="s5">= </span><span class="s1">_numPilotos</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s1">Piloto::~Piloto </span><span class="s5">( )</span>
+<span class="s5">{ }</span>
+
+<span class="s0">/** 
+ * @todo Aquí hay que añadir la comprobación del parámetro y lanzar la excepción 
+ *       correspondiente. El número de misiones no puede ser &lt;= 0 
+ */</span>
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::setNumMisiones </span><span class="s5">( </span><span class="s4">int </span><span class="s1">numMisiones </span><span class="s5">){</span>
+   <span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_numMisiones </span><span class="s5">= </span><span class="s1">numMisiones</span><span class="s5">;</span>
+   <span class="s4">return </span><span class="s5">(*</span><span class="s4">this</span><span class="s5">);</span>
+<span class="s5">}</span>
+
+<span class="s4">int </span><span class="s1">Piloto::getNumMisiones </span><span class="s5">( ) </span><span class="s4">const</span>
+<span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_numMisiones</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::setNacionalidad </span><span class="s5">( </span><span class="s1">string nacionalidad </span><span class="s5">)</span>
+<span class="s5">{</span>
+   <span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_nacionalidad </span><span class="s5">= </span><span class="s1">nacionalidad</span><span class="s5">;</span>
+   <span class="s4">return </span><span class="s5">(*</span><span class="s4">this</span><span class="s5">);</span>
+<span class="s5">}</span>
+
+<span class="s1">string Piloto::getNacionalidad </span><span class="s5">( ) </span><span class="s4">const</span>
+<span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_nacionalidad</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::setNombre </span><span class="s5">( </span><span class="s1">string nombre </span><span class="s5">)</span>
+<span class="s5">{</span>
+   <span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_nombre </span><span class="s5">= </span><span class="s1">nombre</span><span class="s5">;</span>
+   <span class="s4">return </span><span class="s5">(*</span><span class="s4">this</span><span class="s5">);</span>
+<span class="s5">}</span>
+
+<span class="s1">string Piloto::getNombre </span><span class="s5">( ) </span><span class="s4">const</span>
+<span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_nombre</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s4">int </span><span class="s1">Piloto::getIdP </span><span class="s5">( ) </span><span class="s4">const</span>
+<span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_idP</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s0">/** 
+ * @todo Si el número de misiones del piloto es 0, no puede tener incidencias; 
+ *       haz esta comprobación y lanza la excepción correspondiente 
+ */</span>
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::setIncidenciasUltimaMision </span><span class="s5">( </span><span class="s1">string incidenciasUltimaMision </span><span class="s5">){</span>
+   <span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_incidenciasUltimaMision </span><span class="s5">= </span><span class="s1">incidenciasUltimaMision</span><span class="s5">;</span>
+   <span class="s4">return </span><span class="s5">(*</span><span class="s4">this</span><span class="s5">);</span>
+<span class="s5">}</span>
+
+<span class="s1">string Piloto::getIncidenciasUltimaMision </span><span class="s5">( ) </span><span class="s4">const</span>
+<span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_incidenciasUltimaMision</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s0">/** 
+ * @todo Si el número de misiones del piloto es 0, no puede tener fecha de 
+ *       última misión; haz esta comprobación y lanza la excepción 
+ *       correspondiente 
+ */</span>
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::setFechaUltimaMision </span><span class="s5">( </span><span class="s4">long </span><span class="s1">fechaUltimaMision </span><span class="s5">)</span>
+<span class="s5">{</span>
+   <span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_fechaUltimaMision </span><span class="s5">= </span><span class="s1">fechaUltimaMision</span><span class="s5">;</span>
+   <span class="s4">return </span><span class="s5">(*</span><span class="s4">this</span><span class="s5">);</span>
+<span class="s5">}</span>
+
+<span class="s0">/** 
+ * @todo Si el número de misiones del piloto es 0, no puede tener fecha de 
+ *       última misión; haz esta comprobación y lanza la excepción 
+ *       correspondiente 
+ */</span>
+<span class="s4">long </span><span class="s1">Piloto::getFechaUltimaMision </span><span class="s5">( ) </span><span class="s4">const</span>
+<span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_fechaUltimaMision</span><span class="s5">;</span>
+<span class="s5">}</span>
+<span class="s0">//Añadimos la implementacion del get y set del nuevo atributo</span>
+<span class="s1">StarFighter</span><span class="s5">* </span><span class="s1">Piloto::getnave</span><span class="s5">()</span><span class="s4">const </span><span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_nave</span><span class="s5">;</span>
+<span class="s5">}</span>
+
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::setnave</span><span class="s5">(</span><span class="s1">StarFighter</span><span class="s5">* </span><span class="s1">nave</span><span class="s5">) {</span>
+    <span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_nave</span><span class="s5">=</span><span class="s1">nave</span><span class="s5">;</span>
+   <span class="s4">return </span><span class="s5">(*</span><span class="s4">this</span><span class="s5">);</span>
+<span class="s5">}</span>
+<span class="s0">//Añadimos los de Droide</span>
+<span class="s1">Droide</span><span class="s5">*</span><span class="s1">Piloto::getauxiliar</span><span class="s5">()</span><span class="s4">const </span><span class="s5">{</span>
+   <span class="s4">return </span><span class="s1">_auxiliar</span><span class="s5">;</span>
+<span class="s5">}</span>
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::setauxiliar</span><span class="s5">(</span><span class="s1">Droide</span><span class="s5">* </span><span class="s1">auxiliar</span><span class="s5">) {</span>
+   <span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_auxiliar</span><span class="s5">=</span><span class="s1">auxiliar</span><span class="s5">;</span>
+   <span class="s4">return </span><span class="s5">(*</span><span class="s4">this</span><span class="s5">);</span>
+<span class="s5">}</span>
+
+<span class="s1">string Piloto::toCSV </span><span class="s5">() </span><span class="s4">const</span>
+<span class="s5">{</span>
+   <span class="s1">std::stringstream aux</span><span class="s5">;</span>
+
+   <span class="s1">aux </span><span class="s5">&lt;&lt; </span><span class="s1">_nombre </span><span class="s5">&lt;&lt; </span><span class="s3">&quot; ; &quot;</span>
+       <span class="s5">&lt;&lt; </span><span class="s1">_nacionalidad </span><span class="s5">&lt;&lt; </span><span class="s3">&quot; ; &quot;</span>
+       <span class="s5">&lt;&lt; </span><span class="s1">_numMisiones </span><span class="s5">&lt;&lt; </span><span class="s3">&quot; ; &quot;</span>
+       <span class="s5">&lt;&lt; </span><span class="s1">_fechaUltimaMision </span><span class="s5">&lt;&lt; </span><span class="s3">&quot; ; &quot;</span>
+       <span class="s5">&lt;&lt; </span><span class="s1">_incidenciasUltimaMision</span><span class="s5">;</span>
+
+   <span class="s4">return </span><span class="s5">( </span><span class="s1">aux</span><span class="s5">.</span><span class="s1">str </span><span class="s5">() );</span>
+<span class="s5">}</span>
+
+<span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">Piloto::</span><span class="s4">operator </span><span class="s5">= ( </span><span class="s4">const </span><span class="s1">Piloto</span><span class="s5">&amp; </span><span class="s1">otro </span><span class="s5">)</span>
+<span class="s5">{</span>
+   <span class="s4">if </span><span class="s5">( </span><span class="s4">this </span><span class="s5">!= &amp;</span><span class="s1">otro </span><span class="s5">)</span>
+   <span class="s5">{</span>
+      <span class="s1">_nombre </span><span class="s5">= </span><span class="s1">otro</span><span class="s5">.</span><span class="s1">_nombre</span><span class="s5">;</span>
+      <span class="s1">_nacionalidad </span><span class="s5">= </span><span class="s1">otro</span><span class="s5">.</span><span class="s1">_nacionalidad</span><span class="s5">;</span>
+      <span class="s1">_numMisiones </span><span class="s5">= </span><span class="s1">otro</span><span class="s5">.</span><span class="s1">_numMisiones</span><span class="s5">;</span>
+      <span class="s1">_fechaUltimaMision </span><span class="s5">= </span><span class="s1">otro</span><span class="s5">.</span><span class="s1">_fechaUltimaMision</span><span class="s5">;</span>
+      <span class="s1">_incidenciasUltimaMision </span><span class="s5">= </span><span class="s1">otro</span><span class="s5">.</span><span class="s1">_incidenciasUltimaMision</span><span class="s5">;</span>
+   <span class="s5">}</span>
+   
+   <span class="s4">return </span><span class="s5">( *</span><span class="s4">this </span><span class="s5">);</span>
+<span class="s5">}</span>
+<span class="s0">//Implementamos el nuevo metodo construido. Aqui debemos de tener cuidado, ya que el metodo tiene que tener los atributos</span>
+<span class="s0">//de la clase informe y recplicar los datos de la clase Piloto. Por tanto, tendremos unicamente los atirbutos comunes en ambas clases que son:</span>
+<span class="s0">//idPiloto, fechaUltimaMision, y un string de datos que contendra: numero indicendias, idNave, idDroide. Es importante, conevrtir estos enteros en</span>
+<span class="s0">//string para concatenarlos todos en este último atributo</span>
+<span class="s1">Informe Piloto::generaInforme</span><span class="s5">()</span><span class="s4">const </span><span class="s5">{</span>
+   <span class="s0">//Antes de nada, vamos a concatenar los atributos que iran en el tercer atributo del metodo. Para ello, teniendo en cuenta de que idNave y idDroide</span>
+   <span class="s0">//son punteros, tenemos que comprobar que apuntan a algo.</span>
+   <span class="s4">int </span><span class="s1">idNave</span><span class="s5">=-</span><span class="s6">1</span><span class="s5">;</span>
+   <span class="s4">int </span><span class="s1">idDroide</span><span class="s5">=-</span><span class="s6">1</span><span class="s5">;</span>
+
+   <span class="s4">if </span><span class="s5">(</span><span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_nave</span><span class="s5">!=</span><span class="s4">nullptr</span><span class="s5">) { </span><span class="s0">//Comprobamos que el puntero no sea erroneo</span>
+      <span class="s1">idNave</span><span class="s5">=</span><span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_nave</span><span class="s5">-&gt;</span><span class="s1">getIdSF</span><span class="s5">(); </span><span class="s0">//En caso de que no, sobreescribimos el valor de la id de la nave.</span>
+   <span class="s5">}</span>
+   <span class="s4">if </span><span class="s5">(</span><span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_auxiliar</span><span class="s5">!=</span><span class="s4">nullptr</span><span class="s5">) { </span><span class="s0">//Comrpobamos que el puntero no sea erroneo</span>
+      <span class="s1">idDroide</span><span class="s5">=</span><span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_auxiliar</span><span class="s5">-&gt;</span><span class="s1">getIdD</span><span class="s5">(); </span><span class="s0">//En caso de que no lo sea, sobreescribimos el valor de la id del droide</span>
+   <span class="s5">}</span>
+
+   <span class="s0">//Ahora, unimos estos tres atributos en un atributo del metoodo</span>
+   <span class="s1">std::string datos</span><span class="s5">=</span><span class="s3">&quot;Incidencias: &quot;</span><span class="s5">+</span><span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_incidenciasUltimaMision</span><span class="s5">+</span>
+                     <span class="s3">&quot;Id Nave: &quot;</span><span class="s5">+</span><span class="s1">std::to_string</span><span class="s5">(</span><span class="s1">idNave</span><span class="s5">)+</span>
+                        <span class="s3">&quot;Id Droide: &quot;</span><span class="s5">+</span><span class="s1">std::to_string</span><span class="s5">(</span><span class="s1">idDroide</span><span class="s5">);</span>
+   <span class="s0">//Devolvemos ya todo lo pedido en el metodo</span>
+   <span class="s4">return </span><span class="s1">Informe</span><span class="s5">(</span><span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_idP</span><span class="s5">,</span><span class="s4">this</span><span class="s5">-&gt;</span><span class="s1">_fechaUltimaMision</span><span class="s5">,</span><span class="s1">datos</span><span class="s5">);</span>
+<span class="s5">}</span></pre>
+</body>
+</html>

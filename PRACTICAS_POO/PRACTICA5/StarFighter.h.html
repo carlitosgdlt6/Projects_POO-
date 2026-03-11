@@ -1,0 +1,70 @@
+<html>
+<head>
+<title>StarFighter.h</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #b3ae60;}
+.s3 { color: #6aab73;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #bcbec4;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+StarFighter.h</font>
+</center></td></tr></table>
+<pre><span class="s0">/**  
+ * @file StarFighter.h 
+ * @author Casipro Gramo 
+ * 
+ * @date Fecha estelar 20160309 
+ */</span>
+
+<span class="s2">#ifndef </span><span class="s1">STARFIGHTER_H</span>
+<span class="s2">#define </span><span class="s1">STARFIGHTER_H</span>
+
+<span class="s2">#include </span><span class="s3">&lt;string&gt;</span>
+
+<span class="s0">/** 
+ * @brief 
+ */</span>
+<span class="s4">class </span><span class="s1">StarFighter</span>
+<span class="s5">{</span>
+   <span class="s4">private</span><span class="s1">:</span>
+      <span class="s4">static int </span><span class="s1">_numStarFighters</span><span class="s5">; </span><span class="s0">///&lt; Número de objetos de esta clase instanciados</span>
+      <span class="s4">int </span><span class="s1">_idSF</span><span class="s5">=</span><span class="s6">0</span><span class="s5">; </span><span class="s0">///&lt; Identificador único de la nave</span>
+      <span class="s1">std::string _marca</span><span class="s5">; </span><span class="s0">///&lt; Marca de la nave (parece que las VW contaminan más)</span>
+      <span class="s1">std::string _modelo</span><span class="s5">; </span><span class="s0">///&lt; Modelo de la nava</span>
+      <span class="s4">int </span><span class="s1">_numPlazas</span><span class="s5">; </span><span class="s0">///&lt; Número de plazas de la nave</span>
+   <span class="s0">//Añadimos el nuevo atributo parsec</span>
+      <span class="s4">float </span><span class="s1">_parsec</span><span class="s5">;</span>
+
+   <span class="s4">public</span><span class="s1">:</span>
+      <span class="s1">StarFighter </span><span class="s5">();</span>
+      <span class="s1">StarFighter </span><span class="s5">( </span><span class="s1">std::string marca</span><span class="s5">, </span><span class="s1">std::string modelo </span><span class="s5">);</span>
+      <span class="s1">StarFighter </span><span class="s5">( </span><span class="s4">const </span><span class="s1">StarFighter</span><span class="s5">&amp; </span><span class="s1">orig </span><span class="s5">);</span>
+      <span class="s4">virtual </span><span class="s1">~StarFighter </span><span class="s5">( );</span>
+      <span class="s1">StarFighter</span><span class="s5">&amp; </span><span class="s1">setNumPlazas </span><span class="s5">( </span><span class="s4">int </span><span class="s1">numPlazas </span><span class="s5">);</span>
+      <span class="s4">int </span><span class="s1">getNumPlazas </span><span class="s5">( ) </span><span class="s4">const</span><span class="s5">;</span>
+      <span class="s1">StarFighter</span><span class="s5">&amp; </span><span class="s1">setModelo </span><span class="s5">( </span><span class="s1">std::string modelo </span><span class="s5">);</span>
+      <span class="s1">std::string getModelo </span><span class="s5">( ) </span><span class="s4">const</span><span class="s5">;</span>
+      <span class="s1">StarFighter</span><span class="s5">&amp; </span><span class="s1">setMarca </span><span class="s5">( </span><span class="s1">std::string marca </span><span class="s5">);</span>
+      <span class="s1">std::string getMarca </span><span class="s5">( ) </span><span class="s4">const</span><span class="s5">;</span>
+      <span class="s4">int </span><span class="s1">getIdSF </span><span class="s5">( ) </span><span class="s4">const</span><span class="s5">;</span>
+      <span class="s1">std::string toCSV </span><span class="s5">() </span><span class="s4">const</span><span class="s5">;</span>
+      <span class="s1">StarFighter</span><span class="s5">&amp; </span><span class="s4">operator</span><span class="s5">= ( </span><span class="s4">const </span><span class="s1">StarFighter</span><span class="s5">&amp; </span><span class="s1">otro </span><span class="s5">);</span>
+      <span class="s0">//Añadimos los nuevos metodos getParsec y incrementarParsec</span>
+      <span class="s4">float </span><span class="s1">getParsec</span><span class="s5">()</span><span class="s4">const</span><span class="s5">;</span>
+      <span class="s1">StarFighter</span><span class="s5">&amp; </span><span class="s1">incrementarParsec</span><span class="s5">(</span><span class="s4">float </span><span class="s1">parsec</span><span class="s5">);</span>
+<span class="s5">};</span>
+
+<span class="s2">#endif </span><span class="s0">/* STARFIGHTER_H */</span>
+
+</pre>
+</body>
+</html>

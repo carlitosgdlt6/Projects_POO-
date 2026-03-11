@@ -1,0 +1,172 @@
+<html>
+<head>
+<title>main.cpp</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #b3ae60;}
+.s3 { color: #6aab73;}
+.s4 { color: #cf8e6d;}
+.s5 { color: #bcbec4;}
+.s6 { color: #2aacb8;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+main.cpp</font>
+</center></td></tr></table>
+<pre><span class="s0">/**  
+ * @file main.cpp 
+ * @author Casipro Gramo  
+ * @author Yoyapro GRamo 
+ * 
+ * @date Fecha estelar 20160309 
+ */</span>
+
+<span class="s2">#include </span><span class="s3">&lt;cstdlib&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;iostream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;ostream&gt;</span>
+<span class="s2">#include </span><span class="s3">&lt;string&gt;</span>
+<span class="s2">#include </span><span class="s3">&quot;Piloto.h&quot;</span>
+<span class="s2">#include</span><span class="s3">&quot;StarFighter.h&quot;</span>
+<span class="s2">#include </span><span class="s3">&quot;Droide.h&quot;</span>
+
+<span class="s2">#include </span><span class="s3">&quot;Informe.h&quot;</span>
+
+<span class="s4">using namespace </span><span class="s1">std</span><span class="s5">;</span>
+
+<span class="s0">/** 
+ * @todo Ver el enunciado del ejercicio 5 de la práctica 
+ */</span>
+<span class="s4">int </span><span class="s1">main </span><span class="s5">( </span><span class="s4">int </span><span class="s1">argc</span><span class="s5">, </span><span class="s4">char</span><span class="s5">** </span><span class="s1">argv </span><span class="s5">) {</span>
+    <span class="s0">//Creamos vector en memoria dinamica con 5 elementos de piloto, droide, y starfighter</span>
+    <span class="s1">Piloto</span><span class="s5">* </span><span class="s1">vpilotos</span><span class="s5">=</span><span class="s4">nullptr</span><span class="s5">;;</span>
+    <span class="s1">StarFighter</span><span class="s5">* </span><span class="s1">vstarFighters</span><span class="s5">=</span><span class="s4">nullptr</span><span class="s5">;</span>
+    <span class="s1">Droide</span><span class="s5">* </span><span class="s1">vdroides</span><span class="s5">=</span><span class="s4">nullptr</span><span class="s5">;</span>
+
+    <span class="s4">try</span><span class="s5">{</span>
+        <span class="s1">vpilotos</span><span class="s5">=</span><span class="s4">new </span><span class="s1">Piloto</span><span class="s5">[</span><span class="s6">5</span><span class="s5">];</span>
+        <span class="s1">vstarFighters</span><span class="s5">=</span><span class="s4">new </span><span class="s1">StarFighter</span><span class="s5">[</span><span class="s6">5</span><span class="s5">];</span>
+        <span class="s1">vdroides</span><span class="s5">=</span><span class="s4">new </span><span class="s1">Droide</span><span class="s5">[</span><span class="s6">5</span><span class="s5">];</span>
+
+
+        <span class="s1">string datosPilotos</span><span class="s5">[</span><span class="s6">5</span><span class="s5">] = {</span><span class="s3">&quot;Dameron Poe;Jakku;100;123456;---&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;Anakin Skywalker;Tatooine;133;126756;Derribados 3 cazas enemigos&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;Han Solo;Corellia;247;126786;Impacto en motor izquierdo&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;Chewbacca;Kashyyk;115;136786;---&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;Leia Organa;Alderaan;3;126336;Derribados 10 cazas enemigos&quot;</span><span class="s5">};</span>
+        <span class="s1">string datosNaves</span><span class="s5">[</span><span class="s6">5</span><span class="s5">] = {</span><span class="s3">&quot;Kuat Systems;Delta-7;1&quot;</span><span class="s5">,</span>
+                                <span class="s3">&quot;Kuat Systems;Delta-7B;1&quot;</span><span class="s5">,</span>
+                                <span class="s3">&quot;Incom Corporation;T-65B X-wing;1&quot;</span><span class="s5">,</span>
+                                <span class="s3">&quot;Koensayr Manufacturing;Y-wing;2&quot;</span><span class="s5">,</span>
+                                <span class="s3">&quot;Kuat Systems;A-wing;1&quot;</span><span class="s5">};</span>
+        <span class="s1">string datosDroides</span><span class="s5">[</span><span class="s6">5</span><span class="s5">] = {</span><span class="s3">&quot;Industrial Automation;R2-D2&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;Industrial Automation;R2-KT&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;AccuTronics;R3-D3&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;AccuTronics;R3-KT&quot;</span><span class="s5">,</span>
+                                  <span class="s3">&quot;Arakyd Industries;C3PO&quot;</span><span class="s5">};</span>
+
+
+        <span class="s0">//Hacemos lo mismo para la clase piloto</span>
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">0</span><span class="s5">].</span><span class="s1">setNombre</span><span class="s5">(</span><span class="s3">&quot;Dameron Poe&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNacionalidad</span><span class="s5">(</span><span class="s3">&quot;Jakku&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumMisiones</span><span class="s5">(</span><span class="s6">100</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setFechaUltimaMision</span><span class="s5">(</span><span class="s6">123456</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setIncidenciasUltimaMision </span><span class="s5">(</span><span class="s3">&quot;---&quot;</span><span class="s5">);</span>
+
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">1</span><span class="s5">].</span><span class="s1">setNombre</span><span class="s5">(</span><span class="s3">&quot;Anakin Skywalker&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNacionalidad</span><span class="s5">(</span><span class="s3">&quot;Tatooine&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumMisiones</span><span class="s5">(</span><span class="s6">133</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setFechaUltimaMision</span><span class="s5">(</span><span class="s6">126756</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setIncidenciasUltimaMision </span><span class="s5">(</span><span class="s3">&quot;Derribados 3 cazas enemigos&quot;</span><span class="s5">);</span>
+
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">2</span><span class="s5">].</span><span class="s1">setNombre</span><span class="s5">(</span><span class="s3">&quot;Han Solo&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNacionalidad</span><span class="s5">(</span><span class="s3">&quot;Corellia&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumMisiones</span><span class="s5">(</span><span class="s6">247</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setFechaUltimaMision</span><span class="s5">(</span><span class="s6">126786</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setIncidenciasUltimaMision </span><span class="s5">(</span><span class="s3">&quot;Impacto en motor izquierdo&quot;</span><span class="s5">);</span>
+
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">3</span><span class="s5">].</span><span class="s1">setNombre</span><span class="s5">(</span><span class="s3">&quot;Chewbacca&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNacionalidad</span><span class="s5">(</span><span class="s3">&quot;Kashyyk&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumMisiones</span><span class="s5">(</span><span class="s6">115</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setFechaUltimaMision</span><span class="s5">(</span><span class="s6">136786</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setIncidenciasUltimaMision </span><span class="s5">(</span><span class="s3">&quot;---&quot;</span><span class="s5">);</span>
+
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">4</span><span class="s5">].</span><span class="s1">setNombre</span><span class="s5">(</span><span class="s3">&quot;Leia Organa&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNacionalidad</span><span class="s5">(</span><span class="s3">&quot;Alderaan&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumMisiones</span><span class="s5">(</span><span class="s6">3</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setFechaUltimaMision</span><span class="s5">(</span><span class="s6">126336</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setIncidenciasUltimaMision </span><span class="s5">(</span><span class="s3">&quot;Derribados 10 cazas enemigos&quot;</span><span class="s5">);</span>
+
+        <span class="s0">//Ahora hacemos lo mismo para los objetos de la clase StarFighter</span>
+        <span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">0</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;Kuat Systems&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;Delta-7&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumPlazas</span><span class="s5">(</span><span class="s6">1</span><span class="s5">);</span>
+
+        <span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">1</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;kuat Systems&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;Delta-7B&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumPlazas</span><span class="s5">(</span><span class="s6">1</span><span class="s5">);</span>
+
+        <span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">2</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;Incom Corporation&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;T-65B X-wing&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumPlazas</span><span class="s5">(</span><span class="s6">1</span><span class="s5">);</span>
+
+        <span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">3</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;Koensayr Manufacturing&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;Y-wing&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumPlazas</span><span class="s5">(</span><span class="s6">2</span><span class="s5">);</span>
+
+        <span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">4</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;Kuat Systems&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;A-wing&quot;</span><span class="s5">)</span>
+        <span class="s5">.</span><span class="s1">setNumPlazas</span><span class="s5">(</span><span class="s6">1</span><span class="s5">);</span>
+
+        <span class="s0">//Hacemos lo mismo para los droides</span>
+        <span class="s1">vdroides</span><span class="s5">[</span><span class="s6">0</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;Industrial Automation&quot;</span><span class="s5">)</span>
+            <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;R2-D2&quot;</span><span class="s5">);</span>
+        <span class="s1">vdroides</span><span class="s5">[</span><span class="s6">1</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;Industrial Automation&quot;</span><span class="s5">)</span>
+            <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;R2-KT&quot;</span><span class="s5">);</span>
+        <span class="s1">vdroides</span><span class="s5">[</span><span class="s6">2</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;AccuTronics&quot;</span><span class="s5">)</span>
+            <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;R3-D3&quot;</span><span class="s5">);</span>
+        <span class="s1">vdroides</span><span class="s5">[</span><span class="s6">3</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;AccuTronics&quot;</span><span class="s5">)</span>
+            <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;R2-KT&quot;</span><span class="s5">);</span>
+        <span class="s1">vdroides</span><span class="s5">[</span><span class="s6">4</span><span class="s5">].</span><span class="s1">setMarca</span><span class="s5">(</span><span class="s3">&quot;Arakyd Industries&quot;</span><span class="s5">)</span>
+            <span class="s5">.</span><span class="s1">setModelo</span><span class="s5">(</span><span class="s3">&quot;C3PO&quot;</span><span class="s5">);</span>
+
+        <span class="s0">//Asociamos el primer piloto con el tercer droide y la segunda nave.</span>
+        <span class="s0">//Para ello, tenemos que tener en Piloto.h los set corresponeinetes</span>
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">0</span><span class="s5">].</span><span class="s1">setnave</span><span class="s5">(&amp;</span><span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">1</span><span class="s5">])</span>
+        <span class="s5">.</span><span class="s1">setauxiliar</span><span class="s5">(&amp;</span><span class="s1">vdroides</span><span class="s5">[</span><span class="s6">2</span><span class="s5">]);</span>
+
+        <span class="s0">//Se asocie el segundo piloto con el primer droide y la cuarta nave.</span>
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">1</span><span class="s5">].</span><span class="s1">setnave</span><span class="s5">(&amp;</span><span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">3</span><span class="s5">])</span>
+        <span class="s5">.</span><span class="s1">setauxiliar</span><span class="s5">(&amp;</span><span class="s1">vdroides</span><span class="s5">[</span><span class="s6">0</span><span class="s5">]);</span>
+
+        <span class="s0">// Se asocie el tercer piloto con el segundo droide y la primera nave.</span>
+        <span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">2</span><span class="s5">].</span><span class="s1">setnave</span><span class="s5">(&amp;</span><span class="s1">vstarFighters</span><span class="s5">[</span><span class="s6">0</span><span class="s5">])</span>
+        <span class="s5">.</span><span class="s1">setauxiliar</span><span class="s5">(&amp;</span><span class="s1">vdroides</span><span class="s5">[</span><span class="s6">1</span><span class="s5">]);</span>
+
+        <span class="s0">//Se generen dos informes con los datos de las últimas misiones de los dos primeros pilotos</span>
+        <span class="s0">//Como ya tenemos el metodo generaInforme implementado, lo unico que tenemos que hacer es</span>
+        <span class="s1">Informe inf1</span><span class="s5">=</span><span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">0</span><span class="s5">].</span><span class="s1">generaInforme</span><span class="s5">();</span>
+        <span class="s1">Informe inf2</span><span class="s5">=</span><span class="s1">vpilotos</span><span class="s5">[</span><span class="s6">1</span><span class="s5">].</span><span class="s1">generaInforme</span><span class="s5">();</span>
+
+        <span class="s0">//Se muestren por la terminal los datos de los informes generados en formato CSV.</span>
+        <span class="s1">std::cout</span><span class="s5">&lt;&lt;</span><span class="s1">inf1</span><span class="s5">.</span><span class="s1">toCSV</span><span class="s5">()&lt;&lt;</span><span class="s1">std::endl</span><span class="s5">;</span>
+        <span class="s1">std::cout</span><span class="s5">&lt;&lt;</span><span class="s1">inf2</span><span class="s5">.</span><span class="s1">toCSV</span><span class="s5">()&lt;&lt;</span><span class="s1">std::endl</span><span class="s5">;</span>
+
+    <span class="s5">}</span><span class="s4">catch </span><span class="s5">(</span><span class="s1">std::exception</span><span class="s5">&amp; </span><span class="s1">error</span><span class="s5">) { </span><span class="s0">//Recordemos, esto es una forma estandar de capturar los errores</span>
+        <span class="s1">cerr</span><span class="s5">&lt;&lt;</span><span class="s3">&quot;Error, se ha capturado una excepcion: &quot;</span><span class="s5">&lt;&lt;</span><span class="s1">error</span><span class="s5">.</span><span class="s1">what</span><span class="s5">()&lt;&lt;</span><span class="s1">endl</span><span class="s5">;  </span><span class="s0">//el what() sirve para mostrar los mensaje que hemos ido poniendo</span>
+    <span class="s5">}</span>
+    <span class="s4">delete</span><span class="s5">[] </span><span class="s1">vpilotos</span><span class="s5">;</span>
+    <span class="s4">delete</span><span class="s5">[] </span><span class="s1">vstarFighters</span><span class="s5">;</span>
+    <span class="s4">delete</span><span class="s5">[] </span><span class="s1">vdroides</span><span class="s5">;</span>
+
+    <span class="s4">return </span><span class="s6">0</span><span class="s5">;</span>
+
+<span class="s5">}</span>
+
+</pre>
+</body>
+</html>

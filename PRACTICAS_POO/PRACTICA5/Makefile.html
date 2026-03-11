@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>Makefile</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<style type="text/css">
+.s0 { color: #7a7e85;}
+.s1 { color: #bcbec4;}
+.s2 { color: #bcbec4;}
+.s3 { color: #cf8e6d;}
+</style>
+</head>
+<body bgcolor="#191a1c">
+<table CELLSPACING=0 CELLPADDING=5 COLS=1 WIDTH="100%" BGCOLOR="#606060" >
+<tr><td><center>
+<font face="Arial, Helvetica" color="#000000">
+Makefile</font>
+</center></td></tr></table>
+<pre><span class="s0"># 
+#  There exist several targets which are by default empty and which can be  
+#  used for execution of your targets. These targets are usually executed  
+#  before and after some main targets. They are:  
+# 
+#     .build-pre:              called before 'build' target 
+#     .build-post:             called after 'build' target 
+#     .clean-pre:              called before 'clean' target 
+#     .clean-post:             called after 'clean' target 
+#     .clobber-pre:            called before 'clobber' target 
+#     .clobber-post:           called after 'clobber' target 
+#     .all-pre:                called before 'all' target 
+#     .all-post:               called after 'all' target 
+#     .help-pre:               called before 'help' target 
+#     .help-post:              called after 'help' target 
+# 
+#  Targets beginning with '.' are not intended to be called on their own. 
+# 
+#  Main targets can be executed directly, and they are: 
+#   
+#     build                    build a specific configuration 
+#     clean                    remove built files from a configuration 
+#     clobber                  remove all built files 
+#     all                      build all configurations 
+#     help                     print help mesage 
+#   
+#  Targets .build-impl, .clean-impl, .clobber-impl, .all-impl, and 
+#  .help-impl are implemented in nbproject/makefile-impl.mk. 
+# 
+#  Available make variables: 
+# 
+#     CND_BASEDIR                base directory for relative paths 
+#     CND_DISTDIR                default top distribution directory (build artifacts) 
+#     CND_BUILDDIR               default top build directory (object files, ...) 
+#     CONF                       name of current configuration 
+#     CND_PLATFORM_${CONF}       platform name (current configuration) 
+#     CND_ARTIFACT_DIR_${CONF}   directory of build artifact (current configuration) 
+#     CND_ARTIFACT_NAME_${CONF}  name of build artifact (current configuration) 
+#     CND_ARTIFACT_PATH_${CONF}  path to build artifact (current configuration) 
+#     CND_PACKAGE_DIR_${CONF}    directory of package (current configuration) 
+#     CND_PACKAGE_NAME_${CONF}   name of package (current configuration) 
+#     CND_PACKAGE_PATH_${CONF}   path to package (current configuration) 
+# 
+# NOCDDL 
+</span>
+
+<span class="s0"># Environment  
+</span><span class="s1">MKDIR</span><span class="s2">=</span><span class="s1">mkdir</span>
+<span class="s1">CP</span><span class="s2">=</span><span class="s1">cp</span>
+<span class="s1">CCADMIN</span><span class="s2">=</span><span class="s1">CCadmin</span>
+
+
+<span class="s0"># build 
+</span><span class="s1">build</span><span class="s2">: </span><span class="s1">.build-post</span>
+
+<span class="s1">.build-pre</span><span class="s2">:</span>
+<span class="s0"># Add your pre 'build' code here... 
+</span>
+<span class="s1">.build-post</span><span class="s2">: </span><span class="s1">.build-impl</span>
+<span class="s0"># Add your post 'build' code here... 
+</span>
+
+<span class="s0"># clean 
+</span><span class="s1">clean</span><span class="s2">: </span><span class="s1">.clean-post</span>
+
+<span class="s1">.clean-pre</span><span class="s2">:</span>
+<span class="s0"># Add your pre 'clean' code here... 
+</span>
+<span class="s1">.clean-post</span><span class="s2">: </span><span class="s1">.clean-impl</span>
+<span class="s0"># Add your post 'clean' code here... 
+</span>
+
+<span class="s0"># clobber 
+</span><span class="s1">clobber</span><span class="s2">: </span><span class="s1">.clobber-post</span>
+
+<span class="s1">.clobber-pre</span><span class="s2">:</span>
+<span class="s0"># Add your pre 'clobber' code here... 
+</span>
+<span class="s1">.clobber-post</span><span class="s2">: </span><span class="s1">.clobber-impl</span>
+<span class="s0"># Add your post 'clobber' code here... 
+</span>
+
+<span class="s0"># all 
+</span><span class="s1">all</span><span class="s2">: </span><span class="s1">.all-post</span>
+
+<span class="s1">.all-pre</span><span class="s2">:</span>
+<span class="s0"># Add your pre 'all' code here... 
+</span>
+<span class="s1">.all-post</span><span class="s2">: </span><span class="s1">.all-impl</span>
+<span class="s0"># Add your post 'all' code here... 
+</span>
+
+<span class="s0"># build tests 
+</span><span class="s1">build-tests</span><span class="s2">: </span><span class="s1">.build-tests-post</span>
+
+<span class="s1">.build-tests-pre</span><span class="s2">:</span>
+<span class="s0"># Add your pre 'build-tests' code here... 
+</span>
+<span class="s1">.build-tests-post</span><span class="s2">: </span><span class="s1">.build-tests-impl</span>
+<span class="s0"># Add your post 'build-tests' code here... 
+</span>
+
+<span class="s0"># run tests 
+</span><span class="s1">test</span><span class="s2">: </span><span class="s1">.test-post</span>
+
+<span class="s1">.test-pre</span><span class="s2">: </span><span class="s1">build-tests</span>
+<span class="s0"># Add your pre 'test' code here... 
+</span>
+<span class="s1">.test-post</span><span class="s2">: </span><span class="s1">.test-impl</span>
+<span class="s0"># Add your post 'test' code here... 
+</span>
+
+<span class="s0"># help 
+</span><span class="s1">help</span><span class="s2">: </span><span class="s1">.help-post</span>
+
+<span class="s1">.help-pre</span><span class="s2">:</span>
+<span class="s0"># Add your pre 'help' code here... 
+</span>
+<span class="s1">.help-post</span><span class="s2">: </span><span class="s1">.help-impl</span>
+<span class="s0"># Add your post 'help' code here... 
+</span>
+
+
+<span class="s0"># include project implementation makefile 
+</span><span class="s3">include </span><span class="s1">nbproject/Makefile-impl.mk</span>
+
+<span class="s0"># include project make variables 
+</span><span class="s3">include </span><span class="s1">nbproject/Makefile-variables.mk</span>
+</pre>
+</body>
+</html>
